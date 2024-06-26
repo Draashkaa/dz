@@ -13,8 +13,7 @@ const routes =[
         component: NewBlog,
     },
     {
-        path: "/BlogDetails",
-        component: BlogDetails,
+        path: "/post/:id", component:BlogDetails, props:true
     }
 ];
 
