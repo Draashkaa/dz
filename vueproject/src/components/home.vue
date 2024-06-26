@@ -2,53 +2,57 @@
     <div>
         <b>Главная</b>
         <table>
-            <tr v-for="element in this.getresult" :key="element">
+            <tr v-for="element in this.post" :key="element">
+                <RouterLink :to="{path:`/post/${element.id}`, query: {id: element.id}}">
+                <button>
                 <th>
+                    <a>{{ element.title}}</a><br/>
+                    {{ element.body.slice(0,20) + " ... "}}
+                </th>
+                </button>
+                </RouterLink>
+            </tr>
+            <tr v-for="element in this.getresult" :key="element">
+            <RouterLink :to="{path:`/post/${element.id}`, query: {id: element.id}}">
+                <button>
+                    <th>
                     <a>{{ element.title }}</a><br/>
                     {{ element.body.slice(0,20) + " ... "}}
                 </th>
+                </button>
+            </RouterLink>
             </tr>
         </table>
     </div>
 </template>
 
 <script>
-import axios from "axios"
+
 
 
 export default {
     name: "Home-component",
-    data(){
-        return{
-            getresult: Array,
-        };
-    },
-
     props:{
+        getresult: Array,
         post: Array,
-    }, 
-
-    async mounted(){
-        try {
-            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-            this.getresult=response.data;
-            if (this.post != null){
-                this.getresult = this.post.concat(this.getresult);
-            }
-        }
-            catch (error) {
-            console.error("Axios error: ", error);
-        }  
     }
+
 
 };
 
 </script>
 
 <style>
+table{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    border: 2px solid black;
+    text-overflow: ellipsis;
+}
 th{
     height: 30px;
-    width: 100%;
+    width: 10000px;
     text-align: center;
     border: 2px solid black;
     text-overflow: ellipsis;
