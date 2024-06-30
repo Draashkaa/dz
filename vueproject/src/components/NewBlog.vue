@@ -1,13 +1,15 @@
 <template>
     <div>
-        <b>Новый блог</b><br/>
+    <table>
+        <th><b>Новый блог</b><br/>
         <a>Введите название поста: </a>
         <input type="text" v-model="titlepost"/><br/>
         <a>Введите текст поста: </a>
         <input type="text" v-model="bodypost"/><br/>
         <a>Введите свой id: </a>
         <input type="number" v-model="userid"/><br/>
-        <button @click="sendInfomation">Создать пост</button>
+        <router-link to="/home"><button @click="sendInfomation"><a>Создать пост</a></button></router-link></th>
+    </table>
     </div>
 </template>
 
@@ -34,7 +36,14 @@ export default {
 </script>
 
 <style>
+th{
+    text-align: center;
+    text-overflow: ellipsis;
+    border: 2px;
+    border-color: black;
+}
 a{
-    text-align: 20px;
+    font-size: 30px;
+    text-align: center;
 }
 </style>
