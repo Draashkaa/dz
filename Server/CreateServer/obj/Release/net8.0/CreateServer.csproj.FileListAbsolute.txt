@@ -1,0 +1,8 @@
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.csproj.AssemblyReference.cache
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.GeneratedMSBuildEditorConfig.editorconfig
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.AssemblyInfoInputs.cache
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.AssemblyInfo.cs
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.csproj.CoreCompileInputs.cache
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.MvcApplicationPartsAssemblyInfo.cs
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.MvcApplicationPartsAssemblyInfo.cache
+D:\dz\Server\CreateServer\obj\Release\net8.0\CreateServer.sourcelink.json
