@@ -1,21 +1,24 @@
 <template>
     <headerComponent/>
-    <router-view @getnewpost="getInfomation" :titlepost="titlepost" :bodypost="bodypost" :userid="userid"/>
+    <router-view @getnewpost="getInfomation" @Deletepostonclick="Deletepost" :getresult="getresult"/>
 </template>
 
 <script>
+import axios from "axios"
 import headerComponent from "@/components/header.vue"
+
 
 export default {
   name: 'App',
   components: {headerComponent},
+  
 
 data(){
   return{
     titlepost:'',
     bodypost:'',
     userid:'',
-    post: [],
+    getresult: Array,
   }
 },
 
@@ -24,14 +27,32 @@ methods: {
     this.titlepost = titlepost;
     this.bodypost = bodypost;
     this.userid = userid;
-    this.post.push({
+    this.getresult.unshift({
       'title':this.titlepost,
-      'id': 228,
+      'id': Math.max(...this.getresult.map(o => o.id)) + 1,
       'body': this.bodypost,
       'userid': this.userid
     });
+  },
+  Deletepost(id){
+    console.log(id);
+    this.getresult = this.getresult.filter((p) => p.id != id);
+    console.log(this.getresult.find((p) => p.id == id))
+    console.log(this.getresult);
   }
 },
+
+
+
+async mounted(){
+        try {
+            const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+            this.getresult=response.data;
+        }
+            catch (error) {
+            console.error("Axios error: ", error);
+        }  
+    },
 }
 </script>
 
